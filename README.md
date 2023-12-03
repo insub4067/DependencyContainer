@@ -29,9 +29,14 @@ struct ContentView: View {
 }
 
 extension Container {
+
     static let live = Container()
         .register { A_Service() as A_Serviceable }
         .register { B_Service() as B_Serviceable }
+        
+    static let fake = Container()
+        .register { FakeA_Serivce() as A_Serviceable }
+        .register { FakeB_Serivce() as B_Serviceable }
 }
 ```
 ```swift
@@ -42,6 +47,8 @@ protocol A_Serviceable {
 protocol B_Serviceable {
     func fetch()
 }
+```
+```swift
 
 struct A_Service: A_Serviceable {
     func fetch() {
@@ -52,6 +59,19 @@ struct A_Service: A_Serviceable {
 struct B_Service: B_Serviceable {
     func fetch() {
         print("B Fetch")
+    }
+}
+```
+```swift
+struct FakeA_Serivce: A_Serviceable {
+    func fetch() -> String {
+        "Fake A Fetch"
+    }
+}
+
+struct FakeB_Serivce: B_Serviceable {
+    func fetch() -> String {
+        "Fake B Fetch"
     }
 }
 ```
