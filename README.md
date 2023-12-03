@@ -1,5 +1,11 @@
 # 📦 DependencyContainer
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Static Badge](https://img.shields.io/badge/Swift-5.4-orange)
+
+## What is DependencyContainer
+> Designed to ensure multiple objects rely on a single container to manage all dependencies.
+
 ## ✔️ Example
 ```swift
 struct ContentView: View {
