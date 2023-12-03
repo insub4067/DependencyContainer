@@ -9,12 +9,11 @@ import Foundation
 
 public class Container {
     
-    var registry = [String: Any]()
+    private var registry = [String: Any]()
     
     public init() { }
 
-    @discardableResult
-    public func register<T>(_ build: () -> T) -> Self {
+    @discardableResult public func register<T>(_ build: () -> T) -> Self {
         let key = String(describing: T.self)
         registry[key] = build()
         return self
