@@ -14,15 +14,3 @@ protocol A_Serviceable {
 protocol B_Serviceable {
     func fetch() -> String
 }
-
-struct A_Service: A_Serviceable {
-    func fetch() -> String {
-        "A Fetch"
-    }
-}
-
-struct B_Service: B_Serviceable {
-    func fetch() -> String {
-        "B Fetch"
-    }
-}

@@ -3,9 +3,9 @@ import XCTest
 
 final class DependencyContainerTests: XCTestCase {
     
-    let sut = Container()
-    
-    func testExample() throws {
+    func test_Live() {
+        
+        let sut = Container()
         
         // Given
         sut
@@ -19,5 +19,23 @@ final class DependencyContainerTests: XCTestCase {
         // Then
         XCTAssertEqual(aService.fetch(), "A Fetch")
         XCTAssertEqual(bService.fetch(), "B Fetch")
+    }
+    
+    func test_fake() {
+        
+        let sut = Container()
+        
+        // Given
+        sut
+            .register { FakeA_Serivce() as A_Serviceable }
+            .register { FakeB_Serivce() as B_Serviceable }
+        
+        // When
+        var aService: A_Serviceable { sut.resolve() }
+        var bService: B_Serviceable { sut.resolve() }
+        
+        // Then
+        XCTAssertEqual(aService.fetch(), "Fake A Fetch")
+        XCTAssertEqual(bService.fetch(), "Fake B Fetch")
     }
 }
