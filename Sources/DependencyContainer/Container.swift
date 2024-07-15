@@ -27,5 +27,5 @@ public class Container {
         return dependency
     }
 
-    static let shared = Container()
+    public static let shared = Container()
 }
