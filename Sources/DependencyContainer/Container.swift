@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Container {
+@MainActor public class Container {
     
     private var registry = [String: Any]()
     

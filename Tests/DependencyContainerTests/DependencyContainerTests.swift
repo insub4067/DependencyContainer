@@ -3,7 +3,7 @@ import XCTest
 
 final class DependencyContainerTests: XCTestCase {
     
-    func test_Live() {
+    @MainActor func test_Live() {
         
         let sut = Container()
         
@@ -21,7 +21,7 @@ final class DependencyContainerTests: XCTestCase {
         XCTAssertEqual(bService.fetch(), "B Fetch")
     }
     
-    func test_fake() {
+    @MainActor func test_fake() {
         
         let sut = Container()
         
